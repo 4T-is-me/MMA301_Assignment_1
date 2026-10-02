@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginHorizontal: 16,
+        
     },
 
     cardContainer: {
@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
         position: "relative",
         marginTop: 16,
         borderWidth: 1,
+        marginHorizontal: 16,
     },
 
     content: {
@@ -66,6 +67,7 @@ export const styles = StyleSheet.create({
     shortCut: {
         marginTop: 24,
         gap: 4,
+        marginHorizontal: 16,
     },
 
     shortCutSubText: {

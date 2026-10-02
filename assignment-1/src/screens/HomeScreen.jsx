@@ -17,7 +17,7 @@ export default function HomeScreen({ navigation }) {
         .toUpperCase();
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { backgroundColor: theme.colors.background, }]}>
             <View style={[styles.cardContainer, {backgroundColor: theme.colors.welcomeBg, borderColor: theme.colors.border, }]}>
                 {/* Decorative circles */}
                 <View style={[styles.circleLarge,{ backgroundColor: theme.colors.primary,}]} />
