@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
-import { useTheme } from "../contexts/themeContext";
+import { useTheme } from "../contexts/ThemeContext";
 import { styles } from "../styles/HomeStyles";
 import { CardShortCut } from "../components/CardShortCut";
 

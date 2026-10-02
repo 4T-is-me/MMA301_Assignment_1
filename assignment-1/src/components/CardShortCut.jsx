@@ -1,5 +1,5 @@
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
-import { useTheme } from "../contexts/themeContext";
+import { useTheme } from "../contexts/ThemeContext";
 import { Ionicons } from "@expo/vector-icons";
 
 export const CardShortCut = ({ title, description, iconName, onPress }) => {

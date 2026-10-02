@@ -16,9 +16,12 @@ export const styles = StyleSheet.create({
         paddingTop: 20,
     },
 
-    // =========================
-    // Profile
-    // =========================
+    loadingContainer: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+
     profileCard: {
         alignItems: "center",
         paddingVertical: 28,
@@ -30,7 +33,7 @@ export const styles = StyleSheet.create({
     avatarContainer: {
         width: 96,
         height: 96,
-        borderRadius: 18, // vuông bo nhẹ
+        borderRadius: 18,
         borderWidth: 2,
         justifyContent: "center",
         alignItems: "center",
@@ -41,12 +44,18 @@ export const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: "700",
     },
+    avatarImage: {
+        width: "100%",
+        height: "100%",
+        borderRadius: 18,
+    },
 
     name: {
         fontSize: 22,
         fontWeight: "700",
         marginBottom: 4,
     },
+    
 
     username: {
         fontSize: 12,
@@ -66,9 +75,9 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         paddingVertical: 11,
-        paddingHorizontal: 12,
+        paddingHorizontal: 18,
         borderRadius: 12,
-        gap: 2,
+        gap: 6,
     },
 
     editBtnText: {
@@ -77,6 +86,6 @@ export const styles = StyleSheet.create({
         fontSize: 13,
     },
     shortCut: {
-        marginVertical: 18,
+        marginTop: 15,
     }
 });

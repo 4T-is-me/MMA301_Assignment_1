@@ -1,7 +1,7 @@
 import React from "react"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
-import { useTheme } from "../contexts/themeContext"
+import { useTheme } from "../contexts/ThemeContext"
 import Ionicons from "@expo/vector-icons/Ionicons"
 import HomeScreen from "../screens/HomeScreen"
 import ActivityScreen from "../screens/ActivityScreen"

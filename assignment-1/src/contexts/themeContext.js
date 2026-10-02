@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { COLORS } from "../utils/theme";
 
-const themeContext = createContext();
+const ThemeContext = createContext();
 const THEME_KEY = '@app_theme';
 
 export const ThemeProvider = ({ children }) => {
@@ -49,10 +49,10 @@ export const ThemeProvider = ({ children }) => {
     }
 
     return (
-        <themeContext.Provider value={{theme, themeMode, toggleTheme}}>
+        <ThemeContext.Provider value={{theme, themeMode, toggleTheme}}>
             {children}
-        </themeContext.Provider>
+        </ThemeContext.Provider>
     )
 }
 
-export const useTheme = () => useContext(themeContext)
+export const useTheme = () => useContext(ThemeContext)
