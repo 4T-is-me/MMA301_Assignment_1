@@ -1,6 +1,7 @@
 import React from "react"
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
+import { useTheme } from "../contexts/themeContext"
 import Ionicons from "@expo/vector-icons/Ionicons"
 import HomeScreen from "../screens/HomeScreen"
 import ActivityScreen from "../screens/ActivityScreen"
@@ -8,15 +9,27 @@ import ProfileScreen from "../screens/ProfileScreen"
 import EditProfileScreen from "../screens/EditProfileScreen"
 import SettingsScreen from "../screens/SettingsScreen"
 
+
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 
 function MainTabs() {
+    const {theme} = useTheme()
     return (
         <Tab.Navigator
             screenOptions={({ route }) => ({
                 headerShown: true,
                 tabBarHideOnKeyboard:true,
+                tabBarActiveTintColor: theme.colors.primary,
+                tabBarInactiveTintColor: theme.colors.subText,
+                tabBarStyle: {
+                    backgroundColor: theme.colors.card,
+                    borderTopColor: theme.colors.border,
+                },
+                headerStyle: {
+                    backgroundColor: theme.colors.card,
+                },
+                headerTintColor: theme.colors.text,
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
 
@@ -40,11 +53,18 @@ function MainTabs() {
 }
 
 export default function AppNavigator() {
+    const { theme } = useTheme();
     return (
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="MainTabs" component={MainTabs}/>
-            <Stack.Screen name="EditProfile" component={EditProfileScreen}  options={{ title:"Edit Profile" }} />
-            <Stack.Screen name="Settings" component={SettingsScreen}  options={{ title:"Settings" }} />
+        <Stack.Navigator screenOptions={{
+            headerShown: true,
+            headerStyle: {
+                backgroundColor: theme.colors.card,
+            },
+            headerTintColor: theme.colors.text,
+            }}>
+                <Stack.Screen name="MainTabs" component={MainTabs} options={{ headerShown: false }}/>
+                <Stack.Screen name="EditProfile" component={EditProfileScreen}  options={{ title:"Edit Profile" }} />
+                <Stack.Screen name="Settings" component={SettingsScreen}  options={{ title:"Settings" }} />
         </Stack.Navigator>
     )
 }
