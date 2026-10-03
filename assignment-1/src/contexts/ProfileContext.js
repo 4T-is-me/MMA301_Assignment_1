@@ -4,10 +4,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const ProfileContext = createContext();
 const PROFILE_KEY = "@user_profile";
 const DEFAULT_PROFILE = {
-  name: 'Nguyễn Văn A',
-  email: 'ana@example.com',
-  bio: 'Mobile App Developer | React Native & Expo Enthusiast',
-  avatar: 'https://picsum.photos/200',
+    name: 'TrangTTT',
+    email: 'thaotrangtothi@gmail.com',
+    bio: 'Mobile App Developer | React Native & Expo Enthusiast',
+    avatar: 'https://picsum.photos/200',
 };
 export const ProfileProvider = ({ children }) => {
     const [profile, setProfile] = useState(DEFAULT_PROFILE);
