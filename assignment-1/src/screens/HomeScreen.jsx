@@ -1,8 +1,10 @@
-import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, Image, TouchableOpacity, FlatList, ActivityIndicator, ScrollView } from "react-native";
 import { useTheme } from "../contexts/ThemeContext";
 import { styles } from "../styles/HomeStyles";
 import { CardShortCut } from "../components/CardShortCut";
+import CardItem from "../components/CardItem";
+import { fetchActivities } from "../services/activityService";
 
 export default function HomeScreen({ navigation }) {
     const { theme } = useTheme();
@@ -15,9 +17,60 @@ export default function HomeScreen({ navigation }) {
             day: "numeric",
         })
         .toUpperCase();
+    
+    const [activities, setActivities] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [likedPosts, setLikedPosts] = useState({});
+    const fetchData = async () => {
+        setLoading(true);
+        try {
+            const data = await fetchActivities(3, 0); // Lấy 3 bài mới nhất
+            setActivities(data.posts || []);
+        } catch (error) {
+            console.error("Failed to fetch home activities:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+
+    const toggleLiked = async (postId) => {
+        setLikedPosts((prev) => ({
+            ...prev,
+            [postId]: !prev[postId],
+        }));
+        setActivities((prevList) =>
+            prevList.map((item) => {
+                if (item.id === postId) {
+                    const isLiked = likedPosts[postId];
+                    const currentLikes = item.reactions?.likes || 0;
+                    return {
+                        ...item,
+                        reactions: {
+                            ...item.reactions,
+                            likes: isLiked ? currentLikes - 1 : currentLikes + 1,
+                        },
+                    }
+                }
+            return item;
+            })
+        )
+    }
+    const renderItem = ({ item }) => {
+        const isLiked = !!likedPosts[item.id];
+        const likeCount = item.reactions?.likes || 0;
+        return (
+            <CardItem item={item} isLiked={isLiked} likesCount={likeCount || 0} toggleLike={toggleLiked} />
+        )
+    }
+
+    
 
     return (
-        <View style={[styles.container, { backgroundColor: theme.colors.background, }]}>
+        <ScrollView style={[styles.container, { backgroundColor: theme.colors.background, }]}>
             <View style={[styles.cardContainer, {backgroundColor: theme.colors.welcomeBg, borderColor: theme.colors.border, }]}>
                 {/* Decorative circles */}
                 <View style={[styles.circleLarge,{ backgroundColor: theme.colors.primary,}]} />
@@ -51,6 +104,29 @@ export default function HomeScreen({ navigation }) {
             </View>
 
             {/* activities - see all => navigation.navigate("Activity") */}
-        </View>
+            <View style={{ marginTop: 20, paddingHorizontal: 16 }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                    <Text style={{ fontSize: 18, fontWeight: 'bold', color: theme.colors.text }}>
+                        Hoạt động gần đây
+                    </Text>
+                    <TouchableOpacity onPress={() => navigation.navigate("Activity")}>
+                        <Text style={{ color: theme.colors.primary, fontWeight: '600', fontSize: 14 }}>
+                            Xem tất cả
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+
+                {loading ? (
+                    <ActivityIndicator size="small" color={theme.colors.primary} style={{ marginVertical: 20 }} />
+                ) : (
+                    <FlatList
+                        data={activities}
+                        keyExtractor={(item) => item.id.toString()}
+                        renderItem={renderItem}
+                        scrollEnabled={false} // Tắt cuộn của FlatList để ScrollView cha quản lý cuộn
+                    />
+                )}
+            </View>
+        </ScrollView>
     )
 }
