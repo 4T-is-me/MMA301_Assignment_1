@@ -22,7 +22,7 @@ A mobile application built with **React Native (Expo)** for **Assignment 1 - MMA
 
 ### 2. **ProfileScreen (`ProfileScreen.jsx`)**
 
-- Displays the user's Avatar, Full Name, Email, and personal Bio from `ProfileContext`.
+- Displays the user's Avatar, Full Name, Email, Phone Number, Location, and personal Bio from `ProfileContext`.
 - **Edit Profile** button navigates to the Edit Profile screen.
 - Settings button in the Header Bar and a shortcut below the profile card.
 
@@ -30,7 +30,7 @@ A mobile application built with **React Native (Expo)** for **Assignment 1 - MMA
 
 - Controlled form using **Formik** with data validation through **Yup** (`ProfileSchema`).
 - Supports changing the profile picture directly from the device's image library using **`expo-image-picker`**.
-- Real-time validation for Full Name, Email, and Bio.
+- Real-time validation for Full Name, Email, Phone Number, Location, and Bio.
 - Displays successful or failed save feedback using **Toast Notification** (`react-native-toast-message`).
 - Provides a smoother keyboard experience using `KeyboardAvoidingView`.
 

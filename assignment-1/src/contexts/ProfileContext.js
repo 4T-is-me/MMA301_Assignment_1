@@ -6,6 +6,8 @@ const PROFILE_KEY = "@user_profile";
 const DEFAULT_PROFILE = {
     name: 'TrangTTT',
     email: 'thaotrangtothi@gmail.com',
+    phone: '0912345678',
+    location: 'Da Nang, Vietnam',
     bio: 'Mobile App Developer | React Native & Expo Enthusiast',
     avatar: 'https://picsum.photos/200',
 };

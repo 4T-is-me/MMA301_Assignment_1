@@ -48,7 +48,6 @@ export default function ActivityScreen({ navigation }) {
                 setActivities((prev) => [...prev, ...data.posts])
             }
             setTotal(data.total);
-            console.log("......",activities);
         } catch (error) {
             console.error('Failed to load activities', error);
         } finally {

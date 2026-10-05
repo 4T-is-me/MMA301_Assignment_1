@@ -38,6 +38,21 @@ export default function ProfileScreen({ navigation }) {
                     {profile.email}
                 </Text>
 
+                {(profile.phone || profile.location) && (
+                    <View style={{ marginVertical: 4, alignItems: 'center', gap: 2 }}>
+                        {profile.phone ? (
+                            <Text style={{ fontSize: 13, color: theme.colors.subText }}>
+                                📞 {profile.phone}
+                            </Text>
+                        ) : null}
+                        {profile.location ? (
+                            <Text style={{ fontSize: 13, color: theme.colors.subText }}>
+                                📍 {profile.location}
+                            </Text>
+                        ) : null}
+                    </View>
+                )}
+
                 <Text style={[styles.bio, { color: theme.colors.subText }]}>
                     {profile.bio}
                 </Text>

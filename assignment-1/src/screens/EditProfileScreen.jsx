@@ -66,6 +66,8 @@ export default function EditProfileScreen({ navigation }) {
                     initialValues={{
                         name: profile.name || "",
                         email: profile.email || "",
+                        phone: profile.phone || "",
+                        location: profile.location || "",
                         bio: profile.bio || "",
                         avatar: profile.avatar || ""
                     }}
@@ -125,6 +127,41 @@ export default function EditProfileScreen({ navigation }) {
                                 />
                                 {touched.email && errors.email && (
                                     <Text style={styles.errorText}>{errors.email}</Text>
+                                )}
+                            </View>
+
+                            {/* phone */}
+                            <View style={styles.inputGroup}>
+                                <Text style={[styles.label, { color: theme.colors.text }]}>Phone Number</Text>
+
+                                <TextInput
+                                    style={[styles.input, { backgroundColor: theme.colors.inputBg, color: theme.colors.text, borderColor: touched.phone && errors.phone ? '#FF3B30' : theme.colors.border}]}
+                                    value={values.phone}
+                                    onChangeText={handleChange("phone")}
+                                    onBlur={handleBlur("phone")}
+                                    placeholder="Enter your phone number"
+                                    placeholderTextColor={theme.colors.text}
+                                    keyboardType="phone-pad"
+                                />
+                                {touched.phone && errors.phone && (
+                                    <Text style={styles.errorText}>{errors.phone}</Text>
+                                )}
+                            </View>
+
+                            {/* location */}
+                            <View style={styles.inputGroup}>
+                                <Text style={[styles.label, { color: theme.colors.text }]}>Location</Text>
+
+                                <TextInput
+                                    style={[styles.input, { backgroundColor: theme.colors.inputBg, color: theme.colors.text, borderColor: touched.location && errors.location ? '#FF3B30' : theme.colors.border}]}
+                                    value={values.location}
+                                    onChangeText={handleChange("location")}
+                                    onBlur={handleBlur("location")}
+                                    placeholder="Enter your city/country"
+                                    placeholderTextColor={theme.colors.text}
+                                />
+                                {touched.location && errors.location && (
+                                    <Text style={styles.errorText}>{errors.location}</Text>
                                 )}
                             </View>
 
