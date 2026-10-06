@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from "react";
-import { View, Text, TouchableOpacity,Image,} from "react-native";
+import { View, Text, TouchableOpacity, Image, } from "react-native";
 
 import { useTheme } from "../contexts/ThemeContext";
 import { Ionicons } from "@expo/vector-icons";
@@ -16,7 +16,7 @@ export default function ProfileScreen({ navigation }) {
             headerRight: () => (
                 <TouchableOpacity
                     onPress={() => navigation.navigate("Settings")}
-                    style={[ styles.headerRight, { backgroundColor: theme.colors.primaryLight, }, ]} >
+                    style={[styles.headerRight, { backgroundColor: theme.colors.primaryLight, },]} >
                     <Ionicons name="settings-outline" size={22} color={theme.colors.primary} />
                 </TouchableOpacity>
             ),
@@ -42,12 +42,12 @@ export default function ProfileScreen({ navigation }) {
                     <View style={{ marginVertical: 4, alignItems: 'center', gap: 2 }}>
                         {profile.phone ? (
                             <Text style={{ fontSize: 13, color: theme.colors.subText }}>
-                                📞 {profile.phone}
+                                {profile.phone}
                             </Text>
                         ) : null}
                         {profile.location ? (
                             <Text style={{ fontSize: 13, color: theme.colors.subText }}>
-                                📍 {profile.location}
+                                {profile.location}
                             </Text>
                         ) : null}
                     </View>
@@ -63,7 +63,7 @@ export default function ProfileScreen({ navigation }) {
                 </TouchableOpacity>
             </View>
             <View style={styles.shortCut}>
-                <CardShortCut title="Settings" description="Customize your app preferences"iconName="settings-outline" onPress={() => navigation.navigate("Settings")}/>
+                <CardShortCut title="Settings" description="Customize your app preferences" iconName="settings-outline" onPress={() => navigation.navigate("Settings")} />
             </View>
 
         </View>
@@ -71,4 +71,3 @@ export default function ProfileScreen({ navigation }) {
 }
 
 
-   
