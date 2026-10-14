@@ -25,8 +25,8 @@ export default function SettingsScreen() {
     return (
         <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
 
-            <Text style={[styles.sectionLabel, { color: theme.colors.subText }]}>GIAO DIỆN</Text>
-            <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>Chủ đề ứng dụng</Text>
+            <Text style={[styles.sectionLabel, { color: theme.colors.subText }]}>INTERFACE</Text>
+            <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>Application theme</Text>
 
             <View style={styles.themeContainer}>
 
@@ -41,7 +41,7 @@ export default function SettingsScreen() {
                     <View style={styles.themeInfo}>
                         <Ionicons name="sunny-outline" size={14} color={theme.colors.text} />
                         <Text style={[styles.themeText, { color: theme.colors.text }]}>Sáng</Text>
-                         {!isDarkMode && (
+                        {!isDarkMode && (
                             <View style={[styles.check, { backgroundColor: theme.colors.primary }]}>
                                 <Ionicons name="checkmark" size={11} color="#FFF" />
                             </View>
