@@ -1,3 +1,4 @@
+// Author: trangtttce191027
 import { registerRootComponent } from 'expo';
 
 import App from './App';

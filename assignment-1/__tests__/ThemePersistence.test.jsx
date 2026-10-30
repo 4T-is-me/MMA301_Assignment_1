@@ -1,3 +1,4 @@
+// Author: trangtttce191027
 import React, { useEffect } from 'react';
 import { act, render, waitFor } from '@testing-library/react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';

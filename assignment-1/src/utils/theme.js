@@ -1,3 +1,4 @@
+// Author: trangtttce191027
 export const COLORS = {
     primary: '#7C66FF',
     primaryLight: "#EEEBFF",

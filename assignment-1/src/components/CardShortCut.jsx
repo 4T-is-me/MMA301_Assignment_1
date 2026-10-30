@@ -1,3 +1,4 @@
+// Author: trangtttce191027
 import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { useTheme } from "../contexts/ThemeContext";
 import { Ionicons } from "@expo/vector-icons";

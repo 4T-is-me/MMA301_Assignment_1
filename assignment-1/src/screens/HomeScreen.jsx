@@ -1,3 +1,4 @@
+// Author: trangtttce191027
 import React, { useEffect, useState } from "react";
 import { View, Text, Image, TouchableOpacity, FlatList, ActivityIndicator, ScrollView } from "react-native";
 import { useTheme } from "../contexts/ThemeContext";

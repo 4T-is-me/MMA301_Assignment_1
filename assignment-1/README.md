@@ -54,7 +54,7 @@ A mobile application built with **React Native (Expo)** for **Assignment 1 - MMA
 
 ## 🛠 Tech Stack & Core Packages
 
-- **Framework:** React Native (Expo SDK ~57)
+- **Framework:** React Native (Expo SDK ~58)
 - **Language:** JavaScript (ES6+)
 - **Navigation:** React Navigation v7 (`@react-navigation/native`, `@react-navigation/native-stack`, `@react-navigation/bottom-tabs`)
 - **State Management:** React Context API (`ThemeContext`, `ProfileContext`)

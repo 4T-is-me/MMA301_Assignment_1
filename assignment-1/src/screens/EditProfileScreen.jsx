@@ -1,3 +1,4 @@
+// Author: trangtttce191027
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Platform, KeyboardAvoidingView, TextInput } from "react-native";
 import { useTheme } from "../contexts/ThemeContext";

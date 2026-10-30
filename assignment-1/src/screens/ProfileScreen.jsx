@@ -1,3 +1,4 @@
+// Author: trangtttce191027
 import React, { useLayoutEffect } from "react";
 import { View, Text, TouchableOpacity, Image, } from "react-native";
 
